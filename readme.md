@@ -23,50 +23,36 @@
 git clone https://github.com/YOUR_GITHUB_USERNAME/pdf-prod-cat-update.git
 cd pdf-prod-cat-update
 2. Install Dependencies
-sh
-Copy
-Edit
+
 npm install
 3. Set Up Environment Variables
 Create a .env file in the project root and add the following:
 
-ini
-Copy
-Edit
 STORE_HASH=your_bigcommerce_store_hash
 X_AUTH_TOKEN=your_bigcommerce_api_token
 NEXTJS_API_URL=https://your-nextjs-site.com/api/update-promo-category
+
 STORE_HASH → Your BigCommerce store hash.
 X_AUTH_TOKEN → BigCommerce API authentication token.
 NEXTJS_API_URL → The Next.js API route to update the promotion category.
 Usage
 Run the script using npm scripts:
 
-sh
-Copy
-Edit
-npm run run-url "https://example.com/promotional-flyer.pdf"
-or run manually:
 
-sh
-Copy
-Edit
+
+npm npm start -- "https://sbd.hepsales.com/meetings/25.03.10_FINAL.pdf"
+
+or run manually:
 node src/index.mjs "https://example.com/promotional-flyer.pdf"
+
 Output
 Extracted product numbers are saved to:
-bash
-Copy
-Edit
 src/outputs/productNumbers.txt
+
 Any missing SKUs (not found in BigCommerce) are saved to:
-bash
-Copy
-Edit
 src/outputs/missingNumbers.txt
+
 Project Structure
-graphql
-Copy
-Edit
 pdf-prod-cat-update/
 │── src/
 │   ├── bigcommerce_api/
@@ -82,15 +68,13 @@ pdf-prod-cat-update/
 API Calls
 BigCommerce API
 Retrieves product IDs for the extracted SKUs:
-bash
-Copy
-Edit
+
 GET https://api.bigcommerce.com/stores/{STORE_HASH}/v3/catalog/products
 Next.js Custom API
 Updates promotion categories by removing old items and adding new ones:
-Copy
-Edit
+
 POST {NEXTJS_API_URL}
+
 Dependencies
 Package	Description
 dotenv	Loads environment variables
