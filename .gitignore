@@ -1,0 +1,6 @@
+# Ignore all environment variable files
+.env
+.env.*
+!env.example  # (Optional) Allow an example env file
+.env
+#Ignore 
